@@ -55,7 +55,7 @@ public class wallpaperSetter {
     }
 
     // function that takes the api name, and sets the wallpaper to a random image from the api
-    public void setNewWallpaper(String apiName) throws JSONException, IOException {
+    public String setNewWallpaper(String apiName) throws JSONException, IOException {
         // check if api name exists
         if (!imageGetters.containsKey(apiName)) {
             throw new IllegalArgumentException("API name does not exist!");
@@ -72,17 +72,19 @@ public class wallpaperSetter {
         ImageIO.write(image, "jpg", temp);
         // set wallpaper to temporary file
         User32.INSTANCE.SystemParametersInfo(0x0014, 0, temp.getAbsolutePath(), 0x0001);
-        // delete the temporary file
-        temp.delete();
+        return "Wallpaper changed successfully!"; // return success message
     }
 
     // this is a function that loads the default APIs to the hash map. it is called when the program starts.
     // if you want to disable this, just comment out the call to this function in src\GUI.java
-    public void LoadDefaultAPIs() {
+    public String LoadDefaultAPIs() {
+        // ad defaults
         this.addNewAPI("Dogs", "https://dog.ceo/api/breeds/image/random", "message");
-        this.addNewAPI("Cats", "https://api.thecatapi.com/v1/images/search", "url");
+        this.addNewAPI("Ducks", "https://random-d.uk/api/random", "url");
         this.addNewAPI("Foxes", "https://randomfox.ca/floof/", "image");
         this.addNewAPI("NASA's Astronomy Picture of the Day", "https://api.nasa.gov/planetary/apod?api_key=Ixhm5579hQXhLFZfIqeZWwFxQFcjPrWavJ1oyXjJ", "hdurl");
+        this.addNewAPI("Coffee", "https://coffee.alexflipnote.dev/random.json", "file");
+        return "Loaded default APIs successfully!"; // return success message
     }
 
     // this is a function that returns string array of the api names

@@ -1,26 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI">
-  <grid id="27dc6" binding="panel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+  <grid id="27dc6" binding="panel" layout-manager="GridLayoutManager" row-count="11" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="30" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="633" height="141"/>
+      <xy x="20" y="20" width="576" height="326"/>
     </constraints>
-    <properties/>
-    <border type="none"/>
+    <properties>
+      <background color="-11060622"/>
+    </properties>
+    <border type="line"/>
     <children>
       <component id="e2eb8" class="javax.swing.JComboBox" binding="apiComboBox">
-        <constraints/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
         <properties/>
       </component>
+      <component id="824cc" class="javax.swing.JTextField" binding="apiNameText">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="c084e" class="javax.swing.JButton" binding="loadAPIbutton">
+        <constraints>
+          <grid row="3" column="0" row-span="3" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Load default APIs"/>
+        </properties>
+      </component>
+      <component id="77358" class="javax.swing.JTextField" binding="apiUrl">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="1def3" class="javax.swing.JTextField" binding="apiUrlVar">
+        <constraints>
+          <grid row="5" column="1" row-span="4" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="6cd8c" class="javax.swing.JButton" binding="removeAPI">
+        <constraints>
+          <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Remove API"/>
+        </properties>
+      </component>
+      <component id="a0546" class="javax.swing.JButton" binding="addAPI">
+        <constraints>
+          <grid row="9" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Add new API"/>
+        </properties>
+      </component>
+      <component id="9a28e" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-1"/>
+          <text value="API Name:"/>
+        </properties>
+      </component>
+      <component id="dd6d2" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-1"/>
+          <text value="API URL:"/>
+        </properties>
+      </component>
+      <component id="88ac5" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-1"/>
+          <text value="API URL Variable:"/>
+        </properties>
+      </component>
       <component id="69315" class="javax.swing.JButton" binding="getNewWallpaper">
-        <constraints/>
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
         <properties>
           <text value="Change Wallpaper"/>
         </properties>
       </component>
-      <component id="c084e" class="javax.swing.JButton" binding="loadAPIbutton">
-        <constraints/>
+      <component id="f3346" class="javax.swing.JButton" binding="exit">
+        <constraints>
+          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
         <properties>
-          <text value="Load default APIs"/>
+          <text value="Exit"/>
         </properties>
       </component>
     </children>
