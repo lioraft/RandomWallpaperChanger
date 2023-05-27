@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 /* this is the class of the object that performs the background change. it is a singleton class */
 public class wallpaperSetter {
     Desktop myDesktop; // the desktop object that will be used to set the wallpaper
-    wallpaperSetter instance; // the instance of the wallpaper setter object
+    static wallpaperSetter instance; // the instance of the wallpaper setter object
     HashMap<String, imageGetter> imageGetters; // the hash map that will hold the image getters
 
 
@@ -29,7 +29,7 @@ public class wallpaperSetter {
 
 
     // this method returns instance of the wallpaper setter object
-    public wallpaperSetter getInstance() {
+    public static wallpaperSetter getInstance() {
         if (instance == null) {
             instance = new wallpaperSetter();
         }
@@ -74,5 +74,19 @@ public class wallpaperSetter {
         User32.INSTANCE.SystemParametersInfo(0x0014, 0, temp.getAbsolutePath(), 0x0001);
         // delete the temporary file
         temp.delete();
+    }
+
+    // this is a function that loads the default APIs to the hash map. it is called when the program starts.
+    // if you want to disable this, just comment out the call to this function in src\GUI.java
+    public void LoadDefaultAPIs() {
+        this.addNewAPI("Dogs", "https://dog.ceo/api/breeds/image/random", "message");
+        this.addNewAPI("Cats", "https://api.thecatapi.com/v1/images/search", "url");
+        this.addNewAPI("Foxes", "https://randomfox.ca/floof/", "image");
+        this.addNewAPI("NASA's Astronomy Picture of the Day", "https://api.nasa.gov/planetary/apod?api_key=Ixhm5579hQXhLFZfIqeZWwFxQFcjPrWavJ1oyXjJ", "hdurl");
+    }
+
+    // this is a function that returns string array of the api names
+    public String[] getAPIs() {
+        return imageGetters.keySet().toArray(new String[0]);
     }
 }
