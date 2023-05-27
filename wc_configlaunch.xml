@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\Lior\OneDrive\שולחן העבודה\wallpaperChanger\out\artifacts\wallpaperChanger_jar\wallpaperChanger.jar</jar>
+  <outfile>C:\Users\Lior\OneDrive\שולחן העבודה\WallpaperChanger.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl></downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>C:\Users\Lior\Downloads\rocket_startup_monitor_screen_computer_icon_124621.ico</icon>
+  <jre>
+    <path>C:\Program Files\Java\jdk-20</path>
+    <requiresJdk>false</requiresJdk>
+    <requires64Bit>false</requires64Bit>
+    <minVersion>1.4.0</minVersion>
+    <maxVersion></maxVersion>
+  </jre>
+</launch4jConfig>
