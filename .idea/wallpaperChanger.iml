@@ -10,5 +10,6 @@
     <orderEntry type="library" name="sun.jna" level="project" />
     <orderEntry type="library" name="net.java.dev.jna" level="project" />
     <orderEntry type="library" name="net.java.dev.jna1" level="project" />
+    <orderEntry type="library" name="json" level="project" />
   </component>
 </module>
