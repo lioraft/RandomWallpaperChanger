@@ -1,4 +1,5 @@
-import java.awt.Desktop;
+import java.awt.*;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -66,12 +67,35 @@ public class wallpaperSetter {
         URL imageURL = new URL(strImageURL);
         // create buffered image object from url
         BufferedImage image = ImageIO.read(imageURL);
+
+        // the width and height of the screen
+        int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
+        int screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
+
+        // new BufferedImage with the desired size
+        BufferedImage background = new BufferedImage(screenWidth, screenHeight, BufferedImage.TYPE_INT_RGB);
+
+        // the graphics object of the new background image
+        Graphics2D g2d = background.createGraphics();
+
+        // TexturePaint object using the original image
+        Rectangle2D rect = new Rectangle2D.Double(0, 0, image.getWidth(), image.getHeight());
+        TexturePaint texturePaint = new TexturePaint(image, rect);
+
+        // fill the entire background with the repeated image
+        g2d.setPaint(texturePaint);
+        g2d.fillRect(0, 0, screenWidth, screenHeight);
+
+        // dispose the graphics object
+        g2d.dispose();
+
         // create temporary file
         File temp = File.createTempFile("newWallpaper", ".jpg");
-        // save image to temporary file
-        ImageIO.write(image, "jpg", temp);
+        // save background image to temporary file
+        ImageIO.write(background, "jpg", temp);
         // set wallpaper to temporary file
         User32.INSTANCE.SystemParametersInfo(0x0014, 0, temp.getAbsolutePath(), 0x0001);
+
         return "Wallpaper changed successfully!"; // return success message
     }
 
