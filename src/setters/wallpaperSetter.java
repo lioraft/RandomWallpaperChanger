@@ -1,3 +1,5 @@
+package setters;
+
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
@@ -55,8 +57,38 @@ public class wallpaperSetter {
         return "API removed successfully!";
     }
 
-    // function that takes the api name, and sets the wallpaper to a random image from the api
-    public String setNewWallpaper(String apiName) throws JSONException, IOException {
+    // function that takes in absolute path of image (must be jpg), and sets the wallpaper as the image
+    public String setWallpaperFromFile(String path) throws IOException, JSONException {
+        // convert to URL object
+        File imageFile = new File(path);
+        // try to create buffered image object from url
+        try {
+            BufferedImage image = ImageIO.read(imageFile);
+            return setNewWallpaperFromImage(image);
+        }
+        catch (Exception e) {
+            // if failed, return error message
+            return "Can't read image from file!";
+        }
+    }
+
+    // function that takes in url of image (must be jpg), and sets the wallpaper as the image
+    public String setWallpaperFromURL(String url) throws IOException, JSONException {
+        // convert to URL object
+        URL imageURL = new URL(url);
+        // try to create buffered image object from url
+        try {
+            BufferedImage image = ImageIO.read(imageURL);
+            return setNewWallpaperFromImage(image);
+        }
+        catch (Exception e) {
+            // if failed, return error message
+            return "Can't read image from URL!";
+        }
+    }
+
+    // function that takes the api name, and sets the wallpaper as a random image from the api
+    public String setWallpaperFromAPI(String apiName) throws IOException, JSONException {
         // check if api name exists
         if (!imageGetters.containsKey(apiName)) {
             throw new IllegalArgumentException("API name does not exist!");
@@ -67,6 +99,11 @@ public class wallpaperSetter {
         URL imageURL = new URL(strImageURL);
         // create buffered image object from url
         BufferedImage image = ImageIO.read(imageURL);
+        return setNewWallpaperFromImage(image);
+    }
+
+    // function that takes buffered image, and sets the wallpaper as the image
+    public String setNewWallpaperFromImage(BufferedImage image) throws JSONException, IOException {
 
         // the width and height of the screen
         int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
