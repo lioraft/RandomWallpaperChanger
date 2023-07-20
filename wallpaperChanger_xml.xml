@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\Lior\OneDrive\שולחן העבודה\Projects\wallpaperChanger\out\artifacts\wallpaperChanger_newJar\wallpaperChanger.jar</jar>
+  <outfile>C:\Users\Lior\OneDrive\שולחן העבודה\WallpaperChanger.exe</outfile>
+  <errTitle>Please download Java.</errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>true</restartOnCrash>
+  <manifest></manifest>
+  <icon>C:\Users\Lior\Downloads\computerscreen_102708.ico</icon>
+  <jre>
+    <path>C:\Program Files\Java\jdk-20</path>
+    <requiresJdk>false</requiresJdk>
+    <requires64Bit>false</requires64Bit>
+    <minVersion></minVersion>
+    <maxVersion></maxVersion>
+  </jre>
+</launch4jConfig>
